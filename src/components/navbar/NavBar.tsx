@@ -1,0 +1,91 @@
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { useAppDispatch, useAppSelector } from '../../utils/hooks'
+import { clearFavorites } from '../../store/starwarsSlice'
+import { styles } from './styles'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
+const NavBar = ({ handlePrev, handleNext }) => {
+  const dispatch = useAppDispatch()
+  const maleFans = useAppSelector(state => state.starWars.maleFans)
+  const femaleFans = useAppSelector(state => state.starWars.femaleFans)
+  const otherFans = useAppSelector(state => state.starWars.othersFans)
+
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        margin: 16,
+        gap: 10,
+        alignItems: 'center',
+        padding: 10,
+        width: '92%',
+        backgroundColor: 'gray'
+      }}
+    >
+      <TouchableOpacity onPress={handlePrev}>
+        <Ionicons
+          testID="prevButton"
+          name="ios-arrow-back-outline"
+          color="rgba(255, 255, 255, .9)"
+          size={30}
+          style={{ backgroundColor: 'transparent' }}
+        />
+      </TouchableOpacity>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        <Ionicons
+          testID="prevButton"
+          name="ios-male"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+          style={{ backgroundColor: 'transparent' }}
+        />
+        <Text style={styles.icons}> {maleFans}</Text>
+      </View>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        <Ionicons
+          testID="prevButton"
+          name="ios-female"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+          style={{ backgroundColor: 'transparent' }}
+        />
+        <Text style={styles.icons}> {femaleFans}</Text>
+      </View>
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        <Ionicons
+          testID="prevButton"
+          name="ios-male-female-sharp"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+          style={{ backgroundColor: 'transparent' }}
+        />
+        <Text style={styles.icons}>{otherFans}</Text>
+      </View>
+
+      <TouchableOpacity onPress={() => dispatch(clearFavorites())}>
+        <View>
+          <Ionicons
+            testID="prevButton"
+            name="md-trash-bin-outline"
+            color="rgba(255, 255, 255, .9)"
+            size={24}
+            style={{ backgroundColor: 'transparent' }}
+          />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleNext}>
+        <Ionicons
+          testID="nextButton"
+          name="ios-arrow-forward-outline"
+          color="rgba(255, 255, 255, .9)"
+          size={30}
+          style={{ backgroundColor: 'transparent' }}
+        />
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+export default NavBar
