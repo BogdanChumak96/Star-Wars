@@ -1,4 +1,3 @@
-import { BorderRadius } from './../../../node_modules/csstype/index.d'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
@@ -37,7 +36,8 @@ export const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
     resizeMode: 'cover',
-    borderRadius: 10
+    borderRadius: 10,
+    marginBottom: 10
   },
   label: {
     textAlign: 'center',

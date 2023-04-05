@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ImageBackground } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native'
@@ -7,11 +7,10 @@ import { addToFavorites, isFavorite } from '../../store/starwarsSlice'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const CharacterListItem = ({ character }: any) => {
-  // console.log(character.image)
-
   const navigation = useNavigation()
   const isFav = useAppSelector(state => isFavorite(state, character.name))
   const dispatch = useAppDispatch()
+
   const handlePress = () => {
     navigation.navigate('About', { character })
   }
@@ -19,13 +18,10 @@ const CharacterListItem = ({ character }: any) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handlePress}>
-        <View style={{flex:1, flexDirection: 'row'}}>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
           <Image
             resizeMode="contain"
-            style={{ height: '100%',
-             width: '30%',
-              marginRight: 8,
-            borderRadius: 5 }}
+            style={{ height: '100%', width: '30%', marginRight: 8, borderRadius: 5 }}
             alt={character.name}
             source={{ uri: character.image }}
           />

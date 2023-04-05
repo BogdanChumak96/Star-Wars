@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../utils/hooks'
 import { clearFavorites } from '../../store/starwarsSlice'

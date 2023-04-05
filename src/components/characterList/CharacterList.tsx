@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { getAllCharacters } from '../../utils/starwarsApi'

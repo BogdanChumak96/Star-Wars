@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '../../components/layout/Layout'
 import FullInfo from '../../components/fullInfo/FullInfo'
-import { AboutScreenRouteProp } from '../../App'
 import { useRoute } from '@react-navigation/native'
+import { AboutScreenRouteProp } from '../../common/types/types'
 
 type Props = {
   route: AboutScreenRouteProp

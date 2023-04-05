@@ -2,7 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout/Layout'
 import { Text, View, TouchableOpacity, ImageBackground } from 'react-native'
 import { styles } from './styles'
-import { HomeScreenNavigationProp } from '../../App'
+import { HomeScreenNavigationProp } from '../../common/types/types'
+
 
 type Props = {
   navigation: HomeScreenNavigationProp

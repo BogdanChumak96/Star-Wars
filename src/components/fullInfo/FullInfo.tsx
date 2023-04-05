@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
-import { useQuery } from 'react-query'
+import { useNavigation } from '@react-navigation/native'
 import { styles } from './styles'
 import { Character } from '../../common/types/types'
 import Ionicons from 'react-native-vector-icons/Ionicons'
