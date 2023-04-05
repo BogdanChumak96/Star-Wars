@@ -1,13 +1,15 @@
+import { BorderRadius } from './../../../node_modules/csstype/index.d'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
     // alignItems: 'center',
-    justifyItems: 'flex-start',
+    justifyItems: 'center',
+    gap: 10,
     backgroundColor: '#000000c0',
     height: '100%',
     width: '100%',
-    color: 'white',
+    color: 'white'
     // paddingHorizontal: 40
   },
   backButton: {
@@ -27,20 +29,20 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'white'
     // marginBottom: 16
   },
   image: {
-    width: '100%',
-    // height: 200,
+    height: '60%',
+    width: '80%',
+    alignSelf: 'center',
     resizeMode: 'cover',
-    // marginBottom: 16
+    borderRadius: 10
   },
   label: {
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 8
-  },
-  
+  }
 })
