@@ -7,7 +7,7 @@ import { addToFavorites, isFavorite } from '../../store/starwarsSlice'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const CharacterListItem = ({ character }: any) => {
-  console.log(character.image)
+  // console.log(character.image)
 
   const navigation = useNavigation()
   const isFav = useAppSelector(state => isFavorite(state, character.name))

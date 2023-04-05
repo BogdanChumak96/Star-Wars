@@ -7,28 +7,36 @@
 
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer, RouteProp } from '@react-navigation/native'
+import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { Provider } from 'react-redux'
+import { store, RootState } from './store/store'
 import Home from './screens/home/Home'
 import About from './screens/about/About'
 import AllCharacters from './screens/allCharacters/AllCharacters'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { Provider } from 'react-redux'
-import { store } from './store/store'
-const queryClient = new QueryClient()
-const Stack = createNativeStackNavigator()
+import { Character } from './common/types/types'
 
-type RootStackParamList = {
+const queryClient = new QueryClient()
+
+export type RootStackParamList = {
   Home: undefined
-  All: undefined
-  About: undefined
+  All: { categoryId: string }
+  About: { character: Character }
 }
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
-type AllCharactersScreenNavigationProp = StackNavigationProp<RootStackParamList, 'All'>
-type AboutScreenNavigationProp = StackNavigationProp<RootStackParamList, 'About'>
+export type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
+export type AboutScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'About'>
+export type AllCharactersScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'All'>
 
-function App(): JSX.Element {
+export type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>
+export type AboutScreenRouteProp = RouteProp<RootStackParamList, 'About'>
+export type AllCharactersScreenRouteProp = RouteProp<RootStackParamList, 'All'>
+
+type Props = {}
+
+const Stack = createNativeStackNavigator<RootStackParamList>()
+
+const App: React.FC<Props> = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
@@ -42,17 +50,6 @@ function App(): JSX.Element {
       </Provider>
     </QueryClientProvider>
   )
-}
-
-export type HomeScreenProps = {
-  navigation: HomeScreenNavigationProp
-}
-export type AllCharactersScreenProps = {
-  navigation: AllCharactersScreenNavigationProp
-}
-
-export type AboutScreenProps = {
-  navigation: AboutScreenNavigationProp
 }
 
 export default App

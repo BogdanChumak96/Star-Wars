@@ -5,6 +5,7 @@ import { RootState } from './store'
 export interface Character {
   name: string
   gender: 'male' | 'female' | 'n/a'
+  isFavorite?: boolean
 }
 
 export interface CounterState {
@@ -59,9 +60,9 @@ export const starWarsSlice = createSlice({
   }
 })
 
-export const selectIsFavorite = (state: RootState, name: string) => {
+export const selectIsFavorite = (state: RootState, character: Character) => {
   const favorites = state.starWars.favorites
-  return favorites.includes(name)
+  return favorites.findIndex(c => c.name === character.name) !== -1
 }
 
 export const isFavorite = (state: RootState, name: string): boolean => {
@@ -69,7 +70,7 @@ export const isFavorite = (state: RootState, name: string): boolean => {
   const index = favorites.findIndex(c => c.name === name)
   return index !== -1
 }
-// Action creators are generated for each case reducer function
+
 export const { addToFavorites, clearFavorites } = starWarsSlice.actions
 
 export default starWarsSlice.reducer

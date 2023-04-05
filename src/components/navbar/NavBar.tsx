@@ -4,8 +4,9 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks'
 import { clearFavorites } from '../../store/starwarsSlice'
 import { styles } from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { NavBarProps } from '../../common/types/types'
 
-const NavBar = ({ handlePrev, handleNext }) => {
+const NavBar = ({ handlePrev, handleNext }: NavBarProps) => {
   const dispatch = useAppDispatch()
   const maleFans = useAppSelector(state => state.starWars.maleFans)
   const femaleFans = useAppSelector(state => state.starWars.femaleFans)

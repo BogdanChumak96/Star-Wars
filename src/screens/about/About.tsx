@@ -1,10 +1,14 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import Layout from '../../components/layout/Layout'
 import FullInfo from '../../components/fullInfo/FullInfo'
-
+import { AboutScreenRouteProp } from '../../App'
 import { useRoute } from '@react-navigation/native'
-const About = (): JSX.Element => {
+
+type Props = {
+  route: AboutScreenRouteProp
+}
+
+const About: React.FC<Props> = ({ route }) => {
   const { params } = useRoute()
   const character = params?.character
 

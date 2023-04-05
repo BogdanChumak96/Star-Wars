@@ -3,8 +3,13 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useQuery } from 'react-query'
 import { styles } from './styles'
+import { Character } from '../../common/types/types'
 
-const FullInfo = ({ character }): JSX.Element => {
+type FullInfoProps = {
+  character: Character
+}
+
+const FullInfo = ({ character }: FullInfoProps): JSX.Element => {
   const navigation = useNavigation()
 
   return (

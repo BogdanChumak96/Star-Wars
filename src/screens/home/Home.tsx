@@ -2,10 +2,13 @@ import React from 'react'
 import Layout from '../../components/layout/Layout'
 import { Text, View, TouchableOpacity, ImageBackground } from 'react-native'
 import { styles } from './styles'
-import { useNavigation } from '@react-navigation/native'
+import { HomeScreenNavigationProp } from '../../App'
 
-const Home = (): JSX.Element => {
-  const navigate = useNavigation()
+type Props = {
+  navigation: HomeScreenNavigationProp
+}
+
+const Home: React.FC<Props> = ({ navigation }) => {
   return (
     <Layout>
       <ImageBackground
@@ -16,7 +19,7 @@ const Home = (): JSX.Element => {
       >
         <TouchableOpacity
           onPress={() => {
-            navigate.navigate('All')
+            navigation.navigate('All')
           }}
         >
           <View style={styles.container}>
