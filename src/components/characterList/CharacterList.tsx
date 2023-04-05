@@ -10,7 +10,7 @@ import Loader from '../loader/Loader'
 const CharacterList = (): JSX.Element => {
   const [page, setPage] = useState<number>(1)
   const { isLoading, data } = useQuery(['characters', page], () => getAllCharacters(page))
-  
+
   const handlePrev = () => {
     page > 1 && setPage(Math.max(page - 1, 1))
   }
@@ -27,9 +27,9 @@ const CharacterList = (): JSX.Element => {
         data={data}
         keyExtractor={item => item.name}
         //TODO: loader
-        renderItem={({ item }) => (isLoading ? <Loader/> : <CharacterListItem character={item} />)}
+        renderItem={({ item }) => (isLoading ? <Loader /> : <CharacterListItem character={item} />)}
       />
-      <NavBar handleNext={handleNext} handlePrev={handlePrev} />
+      <NavBar page={page} handleNext={handleNext} handlePrev={handlePrev} />
     </View>
   )
 }

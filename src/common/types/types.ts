@@ -11,4 +11,5 @@ export interface Character {
 export interface NavBarProps {
   handlePrev: () => void
   handleNext: () => void
+  page: number
 }

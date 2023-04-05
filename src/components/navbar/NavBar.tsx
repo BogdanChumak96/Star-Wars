@@ -6,30 +6,19 @@ import { styles } from './styles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { NavBarProps } from '../../common/types/types'
 
-const NavBar = ({ handlePrev, handleNext }: NavBarProps) => {
+const NavBar = ({ handlePrev, handleNext, page }: NavBarProps) => {
   const dispatch = useAppDispatch()
   const maleFans = useAppSelector(state => state.starWars.maleFans)
   const femaleFans = useAppSelector(state => state.starWars.femaleFans)
   const otherFans = useAppSelector(state => state.starWars.othersFans)
 
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        margin: 16,
-        gap: 10,
-        alignItems: 'center',
-        padding: 10,
-        width: '92%',
-        backgroundColor: 'gray'
-      }}
-    >
-      <TouchableOpacity onPress={handlePrev}>
+    <View style={styles.container}>
+      <TouchableOpacity disabled={page <= 1} onPress={handlePrev}>
         <Ionicons
           testID="prevButton"
           name="ios-arrow-back-outline"
-          color="rgba(255, 255, 255, .9)"
+          color={page <= 1 ? 'rgba(100, 100, 100, .9)' : 'rgba(255, 255, 255, .9)'}
           size={30}
           style={{ backgroundColor: 'transparent' }}
         />
@@ -76,11 +65,11 @@ const NavBar = ({ handlePrev, handleNext }: NavBarProps) => {
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleNext}>
+      <TouchableOpacity disabled={page >= 9} onPress={handleNext}>
         <Ionicons
+          color={page >= 9 ? 'rgba(100, 100, 100, .9)' : 'rgba(255, 255, 255, .9)'}
           testID="nextButton"
           name="ios-arrow-forward-outline"
-          color="rgba(255, 255, 255, .9)"
           size={30}
           style={{ backgroundColor: 'transparent' }}
         />
