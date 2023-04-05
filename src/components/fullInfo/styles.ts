@@ -2,16 +2,18 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    height: '70%',
+    // alignItems: 'center',
+    justifyItems: 'flex-start',
+    backgroundColor: '#000000c0',
+    height: '100%',
     width: '100%',
-    color: 'black',
-    paddingHorizontal: 40
+    color: 'white',
+    // paddingHorizontal: 40
   },
   backButton: {
-    marginBottom: 155,
+    marginBottom: 15,
     color: 'white',
-    fontSize: 42,
+    fontSize: 62,
     lineHeight: 84,
     width: '100%',
     height: '10%',
@@ -22,21 +24,23 @@ export const styles = StyleSheet.create({
     backgroundColor: '#000000c0'
   },
   title: {
+    textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16
+    color: 'white',
+    // marginBottom: 16
   },
   image: {
     width: '100%',
-    height: 200,
+    // height: 200,
     resizeMode: 'cover',
-    marginBottom: 16
+    // marginBottom: 16
   },
   label: {
+    textAlign: 'center',
     fontWeight: 'bold',
+    color: 'white',
     marginBottom: 8
   },
-  value: {
-    marginBottom: 16
-  }
+  
 })

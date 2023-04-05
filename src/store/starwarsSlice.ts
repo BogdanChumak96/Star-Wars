@@ -51,6 +51,7 @@ export const starWarsSlice = createSlice({
       }
     },
     clearFavorites: state => {
+      state.favorites = []
       state.maleFans = 0
       state.femaleFans = 0
       state.othersFans = 0
@@ -61,6 +62,12 @@ export const starWarsSlice = createSlice({
 export const selectIsFavorite = (state: RootState, name: string) => {
   const favorites = state.starWars.favorites
   return favorites.includes(name)
+}
+
+export const isFavorite = (state: RootState, name: string): boolean => {
+  const favorites = state.starWars.favorites
+  const index = favorites.findIndex(c => c.name === name)
+  return index !== -1
 }
 // Action creators are generated for each case reducer function
 export const { addToFavorites, clearFavorites } = starWarsSlice.actions

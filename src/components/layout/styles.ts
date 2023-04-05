@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '100%',
-    paddingHorizontal: 7
+    // paddingHorizontal: 7
   },
   text: {
     color: 'black',

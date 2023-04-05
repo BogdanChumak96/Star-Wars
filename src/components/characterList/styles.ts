@@ -9,7 +9,10 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    JustifyItems: 'space-between'
+    justifyItems: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000000c0',
+   
   },
   header: {
     color: 'white',
@@ -17,7 +20,7 @@ export const styles = StyleSheet.create({
     lineHeight: 84,
     fontWeight: 'bold',
     textAlign: 'center',
-    backgroundColor: '#000000c0'
+  
   },
   list: {
     paddingHorizontal: 15,

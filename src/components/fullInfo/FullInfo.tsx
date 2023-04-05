@@ -9,12 +9,18 @@ const FullInfo = ({ character }): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.backButton}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <View>
           <Text style={{ color: 'white' }}>Back</Text>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
       <View>
+        <Image
+          resizeMode="contain"
+          style={{ height: '60%', width: '100%' }}
+          alt={character.name}
+          source={{ uri: character.image }}
+        />
         <Text style={styles.title}>Name: {character.name}</Text>
         <Text style={styles.label}>Height: {character.height}</Text>
         <Text style={styles.label}>Mass: {character.mass}</Text>
